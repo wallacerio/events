@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Events - Organization code</title>
+	<link rel="stylesheet" href="examples/css/responsible.css">
+	<style type="text/css">
+	*{
+		font-family: arial;
+	}
+	body{
+		background: #eee;
+	}
+	a{
+		color: blue;
+		text-decoration: underline;
+		cursor: pointer;
+	}
+	.content{
+		max-width: 1024px;
+		margin: auto;
+		}
+	.area{
+		
+		background: #fff;
+		margin: auto;
+		padding: 50px;
+		border: 1px solid #ccc;
+		box-shadow: 0px 0px 5px -2px #000;
+	}.area hr{
+		border:0px;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		margin-bottom: 20px;
+		border-bottom: 1px solid #ccc;
+	}
+	label{
+		display: table-cell;
+		font-weight: bold;
+		color: #444;
+	}
+	</style>
+	<script type="text/javascript" src="events.js"></script>
+
+</head>
+<body>
+
+	<h1>Events </h1>
+	<p>Code organization</p>	
+	<p>Version: 1.0 - Last Modified: 02/11/2016</p>
+	<p>Developed by Wallace Rio &lt;wallrio@gmail.com></p>
+	<hr>
+
+	<h2>How use:</h2>
+	<p>Inser the script on document</p>
+	<pre>
+		&lt;script type="text/javascript" src="events.js">&lt;/script>
+	</pre>
+
+	<h2>Download</h2>
+	<a href="events.js">Download the script</a>
+
+	<!-- Example 1 ================================ -->
+
+	<div class="content">
+
+		<h2>Example 1:</h2>
+		<p>Associar elemento com uma ação</p>
+
+		<div class="area">
+			<p>Click on link below to run action</p>			
+			
+			<a id="element1_ex1">Action 1</a>
+			
+			<hr>
+<pre>
+	&lt;script>
+		events.context('example-1',{
+			action1:{			
+				elements:'#element1_ex1',
+				callback:function(arg){
+					alert('action 1');
+				}
+			}
+		});
+	&lt;/script>
+</pre>
+
+	
+
+		</div>
+	</div>
+		
+	<script>
+	events.context('register-user',{
+		action1:{			
+			elements:'#element1_ex1',
+			callback:function(arg){
+				alert('action 1');
+			}
+		}
+	});
+	</script>
+
+
+
+	<!-- Example 2 ================================ -->
+
+	<div class="content">
+
+		<h2>Example 2:</h2>
+		<p>Associar elemento com uma ação</p>
+
+		<div class="area">
+			<p>Click on link below to run action</p>			
+			
+			<button name="element1_ex2"> Action 2</button>
+
+			
+			
+			<hr>
+<pre>
+	&lt;script>
+		events.context('example-2',{
+			action2:{			
+				elements:'[name="element1_ex2"]',
+				callback:function(arg){
+					alert('action 1');
+				}
+			}
+		});
+	&lt;/script>
+</pre>
+
+	
+
+		</div>
+	</div>
+		
+	<script>
+	events.context('example-2',{
+		action2:{			
+			elements:'[name="element1_ex2"]',
+			callback:function(arg){
+				alert('action 2');
+			}
+		}
+	});
+	</script>
+
+
+
+
+	<!-- Example 3 ================================ -->
+
+	<div class="content">
+
+		<h2>Example 3:</h2>
+		<p>Associar multiplos elementos com uma ação</p>
+
+		<div class="area">
+			<p>Click on link below to run action</p>			
+			
+			<a id="element1_ex3">Action 3</a>
+			<button name="element2_ex3">Action 3</button>
+
+			
+			
+			<hr>
+<pre>
+	&lt;script>
+		events.context('example-3',{
+			action3:{			
+				elements:'#element1_ex3, [name="element2_ex3"]',
+				callback:function(arg){
+					alert('action 3');
+				}
+			}
+		});
+	&lt;/script>
+</pre>
+
+	
+
+		</div>
+	</div>
+		
+	<script>
+	events.context('example-3',{
+			action3:{			
+				elements:'#element1_ex3, [name="element2_ex3"]',
+				callback:function(arg){
+					alert('action 3');
+				}
+			}
+		});
+	</script>
+
+
+
+	<!-- Example 4 ================================ -->
+
+	<div class="content">
+
+		<h2>Example 4:</h2>
+		<p>Associar elementos e evento com uma ação</p>
+
+		<div class="area">
+			<p>Click on link below to run action</p>			
+			
+			<a id="element1_ex4">Action 4</a>
+			<button name="element2_ex4">Action 4</button>
+
+			
+			
+			<hr>
+<pre>
+	&lt;script>
+		events.context('example-4',{
+			action4:{			
+				events:'click,mouseout',
+				elements:'#element1_ex4, [name="element2_ex4"]',
+				callback:function(arg){
+					alert('action 4');
+				}
+			}
+		});
+	&lt;/script>
+</pre>
+
+	
+
+		</div>
+	</div>
+		
+	<script>
+	events.context('example-4',{
+			action4:{			
+				events:'click,mouseout',
+				elements:'#element1_ex4, [name="element2_ex4"]',
+				callback:function(arg){
+					alert('action 4');
+				}
+			}
+		});
+	</script>
+
+
+	<!-- Example 5 ================================ -->
+
+	<div class="content">
+
+		<h2>Example 5:</h2>
+		<p>Associar elementos HTML com uma ação.</p>
+
+		<div class="area">
+			<p>Click on link below to run action</p>			
+			
+			<a data-events="example-5:action5('5')">Action 5</a>
+
+			
+			
+			<hr>
+<pre>
+
+	&lt;a data-events="example-5:action5('5')">Action 5&lt;/a>
+
+	&lt;script>
+		events.context('example-5',{
+			action5:{							
+				callback:function(arg){
+					alert('action '+arg);
+				}
+			}
+		});
+	&lt;/script>
+</pre>
+
+	
+
+		</div>
+	</div>
+		
+	<script>
+	events.context('example-5',{			
+			action5:{							
+				callback:function(arg){
+					alert('action '+arg);
+				}
+			}
+		});
+	</script>
+
+
+
+
+		<!-- Example 6 ================================ -->
+
+	<div class="content">
+
+		<h2>Example 6:</h2>
+		<p>Executar ação via Javascript.</p>
+
+		<div class="area">
+			<p>Click on link below to run action</p>			
+			
+			<a onclick="events.context('example-6').action6('6');">Action 6</a>
+
+			
+			
+			<hr>
+<pre>
+
+	
+
+	&lt;script>
+		events.context('example-6',{
+			action6:{							
+				callback:function(arg){
+					alert('action '+arg);
+				}
+			}
+		});
+	&lt;/script>
+</pre>
+		<h3>Using a element HTML</h3>
+
+		&lt;a onclick="events.context('example-6').action6('6');">Action 6</a>
+
+		<h3>OR</h3>
+			<p>Execute the code:</p>
+			<p>events.context('example-6').action6('6');</p>
+
+
+		</div>
+	</div>
+		
+	<script>
+	
+
+	events.context('example-6',{
+			action6:{							
+				callback:function(arg){
+					alert('action '+arg);
+				}
+			}
+		});
+
+
+	
+	</script>
+
+
+
+	<!-- API ================================ -->
+
+	<div class="content">
+
+		<h2>API:</h2>
+		
+
+		<div class="area">
+			
+			
+			<h3>Attritube on TAG:</h3>
+
+			data-events="context:action:event"<br>
+			<br>
+			<i>context = "id_of_context"</i><br>
+			<i>action = "function_of_action"</i><br>
+			<i>events = "click,mousemove,keyup,..."</i>
+
+			
+			
+			<hr>
+
+	
+
+		</div>
+	</div>
+</body>
+</html>
